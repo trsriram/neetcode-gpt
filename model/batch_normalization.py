@@ -11,11 +11,11 @@ class Solution:
         # Apply affine transform: y = gamma * x_hat + beta
         # Return (y, running_mean, running_var), all rounded to 4 decimals as lists
         X_np = np.array(x)
-        X_mean = X_np.mean(axis=0)
-        X_var = X_np.var(axis=0)
         running_mean_arr = np.array(running_mean)
         running_var_arr = np.array(running_var)
         if training:
+            X_mean = X_np.mean(axis=0)
+            X_var = X_np.var(axis=0)
             x_upd = (X_np - X_mean)/np.sqrt(X_var + eps)
             x_upd = x_upd* gamma  + beta
             running_mean_arr =  running_mean_arr * (1 - momentum) + X_mean * momentum
