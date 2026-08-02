@@ -6,8 +6,9 @@ class Solution:
         N = len(text)
         start = 0
         tokens = []
+        max_len = max((len(k) for k in vocab), default=1)
         while start < N:
-            end = N
+            end = min(N, start + max_len)
             while end > start:
                 cur_string = text[start:end]
                 if (end - start == 1) or (cur_string in vocab):
@@ -20,10 +21,7 @@ class Solution:
     def tokenize_numbers(self, numbers: List[int], vocab: Dict[str, int]) -> List[List[str]]:
         # Tokenize each number using greedy left-to-right longest match.
         # Return a list of token lists showing how each number gets split.
-        t_numbers = []
-        for i in numbers:
-            t_numbers.append(self.tokenize(str(i), vocab))
-        return t_numbers
+        return [self.tokenize(str(num), vocab) for num in numbers]
 
     def count_tokens(self, text: str, vocab: Dict[str, int]) -> int:
         # Count how many tokens the text uses with greedy tokenization.
