@@ -10,7 +10,6 @@ class Solution:
             end = N
             while end > start:
                 cur_string = text[start:end]
-                print(cur_string)
                 if (end - start == 1) or (cur_string in vocab):
                     tokens.append(cur_string)
                     break
