@@ -10,7 +10,7 @@ class Solution(nn.Module):
         self.embedding = nn.Embedding(vocabulary_size, 16)
         self.linear = nn.Linear(16, 1)
         self.sigmoid = nn.Sigmoid()
-        pass
+        return
 
     def forward(self, x: TensorType[int]) -> TensorType[float]:
         # Hint: The embedding layer outputs a B, T, embed_dim tensor
