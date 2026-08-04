@@ -13,7 +13,7 @@ class Solution:
 
     def encode(self, text: str, stoi: Dict[str, int]) -> List[int]:
         # Convert a string to a list of integers using stoi mapping
-        return list([stoi.get(ch) for ch in text])
+        return [stoi.get(ch) for ch in text]
 
     def decode(self, ids: List[int], itos: Dict[int, str]) -> str:
         # Convert a list of integers back to a string using itos mapping
