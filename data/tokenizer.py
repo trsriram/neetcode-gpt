@@ -24,13 +24,13 @@ class Solution:
             
             new_tokens = []
             i = 0
-            while (i + 1 < len(tokens)):
-                if tokens[i] == best_pair[0] and tokens[i+1] == best_pair[1]:
+            while i < len(tokens):
+                if i + 1 < len(tokens) and tokens[i] == best_pair[0] and tokens[i+1] == best_pair[1]:
                     new_tokens.append(best_pair[0] + best_pair[1])
-                    i = i + 2
+                    i += 2
                 else:
                     new_tokens.append(tokens[i])
-                    i = i + 1
+                    i += 1
             tokens = new_tokens
             merges.append(list(best_pair))
         return merges
